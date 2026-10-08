@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Madhu BookHub — All Books Catalog & Inventory Management" />
+  <title>All Books — Madhu BookHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Mobile Sidebar Backdrop Overlay -->
+<div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+<div class="layout">
+
+  <!-- ═══════════════ LEFT SIDEBAR ═══════════════════════════ -->
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+
+    <!-- Enterprise Brand Header -->
+    <div class="sidebar-logo">
+      <a href="index.html" class="brand-identity" aria-label="Madhu BookHub Home">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg class="brand-svg" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-wordmark">
+          <span class="brand-title">Madhu <span class="brand-accent">BookHub</span></span>
+          <span class="brand-subtitle">Online Book Store</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Core Platform</span>
+
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </span>
+        Dashboard
+      </a>
+
+      <a href="books.html" class="nav-item active" aria-current="page">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </span>
+        All Books
+        <span class="nav-badge" id="nav-book-count">—</span>
+      </a>
+
+      <a href="add-book.html" class="nav-item">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </span>
+        Add Book
+      </a>
+
+      <span class="nav-section-label">Quick Filters</span>
+
+      <a href="books.html?stock_status=low" class="nav-item">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </span>
+        Low Stock Items
+      </a>
+    </nav>
+
+    <!-- Sidebar System Footer -->
+    <div class="sidebar-footer">
+      <div class="sidebar-system-badge">
+        <span class="sidebar-system-dot" style="background:#059669;" aria-hidden="true"></span>
+        <span>Catalog Synchronized</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════════════════ -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button id="hamburger" class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="topbar-titles">
+          <span class="topbar-breadcrumbs">Catalog / Inventory</span>
+          <h1 class="topbar-title">Book Discovery &amp; Inventory</h1>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <a href="add-book.html" class="btn btn-primary btn-sm">
+          <span>➕</span> Add New Book
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Content Container -->
+    <div class="content">
+
+      <!-- ── Multi-Faceted Toolbar (Search, Filter, Sort, View Toggle) ── -->
+      <section class="toolbar-wrap" aria-label="Search and filter controls">
+        <div class="toolbar-filters">
+
+          <!-- Search Input with SVG icon -->
+          <div class="search-field-wrap">
+            <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              id="search-input"
+              class="search-input-field"
+              placeholder="Search by title, author, or category..."
+              aria-label="Search books"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Category Filter (populated from DB) -->
+          <select id="category-filter" class="select-filter" aria-label="Filter by category">
+            <option value="">All Categories</option>
+          </select>
+
+          <!-- Stock Status Filter -->
+          <select id="stock-filter" class="select-filter" aria-label="Filter by stock health">
+            <option value="">All Stock Statuses</option>
+            <option value="healthy">Healthy Stock (&ge; 5)</option>
+            <option value="low">Low Stock (&lt; 5)</option>
+            <option value="out">Out of Stock (0)</option>
+          </select>
+
+          <!-- Sort Order Dropdown -->
+          <select id="sort-select" class="select-filter" aria-label="Sort order">
+            <option value="newest">Sort: Newest Added</option>
+            <option value="title_asc">Sort: Title (A &rarr; Z)</option>
+            <option value="title_desc">Sort: Title (Z &rarr; A)</option>
+            <option value="price_asc">Sort: Price (Low &rarr; High)</option>
+            <option value="price_desc">Sort: Price (High &rarr; Low)</option>
+            <option value="stock_asc">Sort: Stock (Lowest First)</option>
+            <option value="stock_desc">Sort: Stock (Highest First)</option>
+          </select>
+
+          <!-- Clear Filters Trigger -->
+          <button id="clear-filters-btn" class="btn btn-secondary btn-sm" style="display:none;">
+            Clear Filters
+          </button>
+        </div>
+
+        <!-- Right Side: View Mode Toggle (Grid / Table) & Result Count -->
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <span id="result-count" class="result-count" aria-live="polite"></span>
+
+          <div class="view-mode-toggle" role="group" aria-label="View layout switcher">
+            <button id="view-grid-btn" class="view-btn active" title="Show Cover Grid View" aria-pressed="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Grid</span>
+            </button>
+            <button id="view-table-btn" class="view-btn" title="Show Data Table View" aria-pressed="false">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+              <span>Table</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Container for Dynamic Grid View ───────────────── -->
+      <section id="books-grid-container" class="book-cards-grid" aria-label="Books Cover Grid">
+        <!-- Rendered by books.js -->
+        <div class="loading-wrap" style="grid-column: 1 / -1;">
+          <div class="spinner"></div>
+          <span>Loading catalog...</span>
+        </div>
+      </section>
+
+      <!-- ── Container for Dynamic Table View ──────────────── -->
+      <section id="books-table-container" class="panel-card" style="display:none;" aria-label="Books Data Table">
+        <div class="table-wrap">
+          <table aria-label="Books inventory table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 50px;">Cover</th>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Stock Status</th>
+                <th scope="col" style="text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="books-table-body">
+              <tr>
+                <td colspan="8">
+                  <div class="loading-wrap">
+                    <div class="spinner"></div>
+                    <span>Loading books...</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div><!-- /content -->
+
+    <!-- Enterprise App Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          Madhu BookHub &bull; Online Book Store Platform
+        </div>
+        <div class="footer-meta">
+          &copy; <span id="current-year"></span> Madhu BookHub. Professional Inventory System.
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</div><!-- /layout -->
+
+<!-- ═══════════════ DELETE CONFIRMATION MODAL ════════════════ -->
+<div id="delete-overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div style="width:48px; height:48px; border-radius:50%; background:#FEF2F2; color:#DC2626; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1rem;" aria-hidden="true">
+      🗑️
+    </div>
+    <h2 class="panel-title" id="modal-title" style="font-size:1.25rem; margin-bottom:0.5rem;">Delete Book from Store?</h2>
+    <p style="font-size:0.875rem; color:var(--color-text-secondary); line-height:1.5; margin-bottom:1rem;">
+      Are you sure you want to permanently delete <strong id="delete-book-name"></strong>?
+      <span style="font-size:0.8125rem; color:var(--color-text-muted); display:block; margin-top:0.25rem;">
+        This record will be removed from MySQL database immediately.
+      </span>
+    </p>
+    <div class="form-actions" style="margin-top:1rem; padding-top:1rem; justify-content:flex-end;">
+      <button id="cancel-delete-btn" class="btn btn-secondary">Cancel</button>
+      <button id="confirm-delete-btn" class="btn btn-danger">Delete Book</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<!-- Core Scripts -->
+<script src="js/covers.js"></script>
+<script src="js/api.js"></script>
+<script src="js/books.js"></script>
+</body>
+</html>

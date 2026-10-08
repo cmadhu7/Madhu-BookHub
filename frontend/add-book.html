@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Madhu BookHub — Add New Book to Catalog" />
+  <title>Add Book — Madhu BookHub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Mobile Sidebar Backdrop Overlay -->
+<div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+<div class="layout">
+
+  <!-- ═══════════════ LEFT SIDEBAR ═══════════════════════════ -->
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
+
+    <!-- Enterprise Brand Header -->
+    <div class="sidebar-logo">
+      <a href="index.html" class="brand-identity" aria-label="Madhu BookHub Home">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg class="brand-svg" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-wordmark">
+          <span class="brand-title">Madhu <span class="brand-accent">BookHub</span></span>
+          <span class="brand-subtitle">Online Book Store</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Core Platform</span>
+
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </span>
+        Dashboard
+      </a>
+
+      <a href="books.html" class="nav-item">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </span>
+        All Books
+      </a>
+
+      <a href="add-book.html" class="nav-item active" aria-current="page">
+        <span class="nav-icon-wrap" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </span>
+        Add Book
+      </a>
+    </nav>
+
+    <!-- Sidebar System Footer -->
+    <div class="sidebar-footer">
+      <div class="sidebar-system-badge">
+        <span class="sidebar-system-dot" style="background:#059669;" aria-hidden="true"></span>
+        <span>Catalog Synchronized</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════════════════ -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button id="hamburger" class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          ☰
+        </button>
+        <div class="topbar-titles">
+          <span class="topbar-breadcrumbs">Inventory / Catalog Entry</span>
+          <h1 class="topbar-title">Add New Book</h1>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <a href="books.html" class="btn btn-secondary btn-sm">
+          &larr; Back to Catalog
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Content Container -->
+    <div class="content">
+
+      <div class="form-card" style="margin: 0 auto;">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Book Specifications</h2>
+            <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:2px;">
+              Input verified publishing metadata and initial warehouse inventory count.
+            </p>
+          </div>
+          <span style="font-size:0.8125rem; color:var(--color-text-muted);">
+            Required fields marked <span style="color:var(--color-danger);">*</span>
+          </span>
+        </div>
+
+        <div class="panel-body">
+          <form id="add-book-form" novalidate>
+
+            <div class="form-grid">
+
+              <!-- Title -->
+              <div class="form-group full">
+                <label for="title" class="label-required">Book Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  class="form-input"
+                  placeholder="e.g., Clean Architecture"
+                  maxlength="255"
+                  autocomplete="off"
+                  required
+                />
+                <span class="form-hint">Enter the complete commercial title as published.</span>
+                <span class="form-error" id="title-error" role="alert"></span>
+              </div>
+
+              <!-- Author -->
+              <div class="form-group full">
+                <label for="author" class="label-required">Author</label>
+                <input
+                  type="text"
+                  id="author"
+                  name="author"
+                  class="form-input"
+                  placeholder="e.g., Robert C. Martin"
+                  maxlength="255"
+                  autocomplete="off"
+                  required
+                />
+                <span class="form-hint">Primary author or editorial contributors.</span>
+                <span class="form-error" id="author-error" role="alert"></span>
+              </div>
+
+              <!-- Category -->
+              <div class="form-group full">
+                <label for="category" class="label-required">Category</label>
+                <input
+                  type="text"
+                  id="category"
+                  name="category"
+                  class="form-input"
+                  placeholder="e.g., Programming, Science, Economics..."
+                  maxlength="100"
+                  autocomplete="off"
+                  list="category-suggestions"
+                  required
+                />
+                <datalist id="category-suggestions">
+                  <option value="Programming">
+                  <option value="Science">
+                  <option value="History">
+                  <option value="Economics">
+                  <option value="Fiction">
+                  <option value="Mathematics">
+                  <option value="Technology">
+                  <option value="Business">
+                </datalist>
+                <span class="form-hint">Select a standard category or type a new genre.</span>
+                <span class="form-error" id="category-error" role="alert"></span>
+              </div>
+
+              <!-- Price -->
+              <div class="form-group">
+                <label for="price" class="label-required">Retail Price ($ USD)</label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  class="form-input"
+                  placeholder="e.g., 34.99"
+                  min="0"
+                  max="99999.99"
+                  step="0.01"
+                  required
+                />
+                <span class="form-hint">Non-negative decimal currency value.</span>
+                <span class="form-error" id="price-error" role="alert"></span>
+              </div>
+
+              <!-- Stock Quantity -->
+              <div class="form-group">
+                <label for="stock" class="label-required">Stock Quantity</label>
+                <input
+                  type="number"
+                  id="stock"
+                  name="stock"
+                  class="form-input"
+                  placeholder="e.g., 25"
+                  min="0"
+                  max="999999"
+                  step="1"
+                  required
+                />
+                <span class="form-hint">Whole units in warehouse stock (&ge; 0).</span>
+                <span class="form-error" id="stock-error" role="alert"></span>
+              </div>
+
+            </div><!-- /form-grid -->
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">
+                <span>➕</span> Add Book to Store
+              </button>
+              <a href="books.html" class="btn btn-secondary btn-lg">
+                Cancel
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+
+    <!-- Enterprise App Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          Madhu BookHub &bull; Online Book Store Platform
+        </div>
+        <div class="footer-meta">
+          &copy; <span id="current-year"></span> Madhu BookHub. Professional Inventory System.
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</div><!-- /layout -->
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<!-- Core Scripts -->
+<script src="js/api.js"></script>
+<script src="js/add-book.js"></script>
+</body>
+</html>
